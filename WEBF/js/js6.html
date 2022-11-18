@@ -1,0 +1,31 @@
+<!document html>
+<html>
+	<head>
+		<style>
+			.first{
+				position:absolute;
+				background:#E73C49;
+				width:300px;
+				height:250px;
+				top:50%;
+				left:50%;
+				
+				
+			}
+			.first:hover{
+				transform:scale(2.5);
+				transition:transform 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="first"></div>
+		<script>
+			let color=[,"#3C9EE7","#E7993C","#E73C99","#3CE746" , "#E7993C"];
+			document.querySelector("div").addEventListener("mouseover",function(){
+				document.querySelector("div").style.background=color[Math.floor(Math.random()*color.length)];
+				
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<script>
+		function func(){
+			let x=document.getElementById("h1").value;
+			alert("The length is:"+x.length);
+			document.getElementById("h1").style.color="blue";
+		}
+		
+		function func2(){
+			let x=document.getElementById("h1").value;
+			document.write(x.fontsize(10));
+			document.write("	");
+			document.write(x.bold());
+			document.write("	");
+			document.write(x.italics());
+		}
+	</script>
+	<body>
+		Enter a String<input type=text id="h1"><br><br>
+		<button onclick="return func()">submit</button><br><br>
+		<button onclick="return func2()">Change Styles</button>
+	</body>
+</html>
+		

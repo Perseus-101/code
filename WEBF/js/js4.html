@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<script>
+		function validate(){
+			let x = document.forms["myForm"]["fname"].value;
+			let y= document.forms["myForm"]["fmail"].value;
+			let z = document.forms["myForm"]["fphno"].value;
+			
+			if(x == "" || y == "" ||  z == ""){
+				alert("Fields should not be empty!");
+			}
+			if(isNaN(z)==true){
+				alert("Phone number must be numeric!");
+			}
+			if(z.length != 10 ){
+				alert("The phone number must be 10 digits!");
+			}
+			return false;
+		}
+	</script>
+	<body>
+		<form  name = "myForm" action = "a.php" method = "post" onsubmit = "return validate()" >
+			name <input type = "text" name = "fname"><br><br>
+			Email<input type = "text " name = "fmail"><br><br>
+			phno<input type = "Text" name = "fphno"><br><br>
+			 <input type = submit value = Submit>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+      <head>
+            <script type="text/javascript">
+            function change_case()
+            {
+                  var nm = document.cc.txtnm.value;
+                  document.getElementById("temp").innerHTML=nm.toLowerCase();
+            }
+            </script>
+      </head>
+      <body>
+            <form name="cc" method="post" action="" onmouseout="change_case()">
+                  <input type="text" name="txtnm" id="txtnm"><br/>
+                  <p id="temp"> &nbsp; </p>
+            </form>
+      </body>
+</html>
