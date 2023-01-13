@@ -1,0 +1,32 @@
+
+void print_gc(process p[], int n){
+    printf(" ");
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<p[i].burst_time; j++) printf("--");
+        printf(" ");
+    }
+    printf("\n|");
+
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<p[i].burst_time - 1; j++) printf(" ");
+        printf("P%d", p[i].pid);
+        for(int j=0; j<p[i].burst_time - 1; j++) printf(" ");
+        printf("|");
+    }
+    printf("\n ");
+
+    // printf(" ");
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<p[i].burst_time; j++) printf("--");
+        printf(" ");
+    }
+    printf("\n");
+
+    printf("0");
+    for(int i=0;i<n;i++){
+        for(int j=0;j<p[i].burst_time;j++)printf("  ");
+        printf("\b");
+        printf("%d",p[i].ta_t);
+    }
+    printf("\n");
+}
