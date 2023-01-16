@@ -1,0 +1,95 @@
+<?php
+    $db = new mysqli("host", "username", "password", "database");
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+    }
+
+    if(isset($_POST['submit'])) {
+        $actor_name = $_POST['actor_name'];
+
+        $query = "SELECT movie_name FROM Movie JOIN MovieActor ON Movie.movie_no = MovieActor.movie_no JOIN Actor ON Actor.actor_no = MovieActor.actor_no WHERE name = '$actor_name'";
+        $result = $db->query($query);
+
+        if ($result->num_rows > 0) {
+            echo "<h2>Movies in which $actor_name acted: </h2>";
+            while($row = $result->fetch_assoc()) {
+                echo $row["movie_name"] . "<br>";
+            }
+        } else {
+            echo "No movies found for $actor_name.";
+        }
+    }
+?>
+
+
+
+QQ
+
+
+<form method="post" action="">
+    <label>Actor Name: </label>
+    <input type="text" name="actor_name">
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+
+QQ
+
+<?php
+    $db = new mysqli("host", "username", "password", "database");
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+    }
+
+    if(isset($_POST['submit'])) {
+        $movie_name = $_POST['movie_name'];
+        $new_year = $_POST['new_year'];
+
+        $query = "UPDATE Movie SET release_year = $new_year WHERE movie_name = '$movie_name'";
+        if ($db->query($query) === TRUE) {
+            echo "Record updated successfully";
+        } else {
+            echo "Error updating record: " . $db->error;
+        }
+    }
+?>
+
+
+
+Qq
+
+
+<?php
+    $db = new mysqli("host", "username", "password", "database");
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+    }
+
+    if(isset($_POST['submit'])) {
+        $movie_name = $_POST['movie_name'];
+        $new_year = $_POST['new_year'];
+
+        $query = "UPDATE Movie SET release_year = $new_year WHERE movie_name = '$movie_name'";
+        if ($db->query($query) === TRUE) {
+            echo "Record updated successfully";
+        } else {
+            echo "Error updating record: " . $db->error;
+        }
+    }
+?>
+
+
+QQ
+
+
+
+<form method="post" action="">
+    <label>Movie Name: </label>
+    <input type="text" name="movie_name">
+    <br>
+    <label>New Release Year: </label>
+    <input type="number" name="new_year">
+    <br>
+    <input type="submit" name="submit" value="Submit">
+</form>
+
