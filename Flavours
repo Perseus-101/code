@@ -1,0 +1,53 @@
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class IceCream {
+    public static void main(String[] args) {
+        HashSet<String> flavors = new HashSet<>();
+        Scanner scanner = new Scanner(System.in);
+
+        // Accept 'n' number of flavors
+        System.out.print("Enter number of flavors: ");
+        int n = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Enter the flavors: ");
+        for (int i = 0; i < n; i++) {
+            String flavor = scanner.nextLine();
+            flavors.add(flavor);
+        }
+
+        // Search for a specific flavor
+        System.out.print("Enter flavor to search for: ");
+        String searchFlavor = scanner.nextLine();
+        if (flavors.contains(searchFlavor)) {
+            System.out.println(searchFlavor + " is available.");
+        } else {
+            System.out.println(searchFlavor + " is not available.");
+        }
+
+        // Sort all flavors
+        System.out.println("Sorted flavors: ");
+        Object[] flavorArray = flavors.toArray();
+        Arrays.sort(flavorArray);
+        for (Object flavor : flavorArray) {
+            System.out.println(flavor);
+        }
+
+        // Accept prices for all flavors
+        HashMap<String, Double> prices = new HashMap<>();
+        for (String flavor : flavors) {
+            System.out.print("Enter price for " + flavor + ": ");
+            double price = scanner.nextDouble();
+            prices.put(flavor, price);
+        }
+
+        // Create hash table using flavors and prices
+        System.out.println("Flavor - Price table:");
+        for (String flavor : flavors) {
+            double price = prices.get(flavor);
+            System.out.println(flavor + " - " + price);
+        }
+    }
+}
