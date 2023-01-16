@@ -1,4 +1,5 @@
 import java.util.Hashtable;
+import java.util.Scanner;
 
 public class Person {
     public static void main(String[] args) {
@@ -12,8 +13,17 @@ public class Person {
         // Display all entries in the Hashtable
         System.out.println(phoneBook);
 
-        // Search for a specific person
-        String contactNumber = phoneBook.get("Jane Doe");
-        System.out.println("Contact number for Jane Doe: " + contactNumber);
+        // Prompt the user to enter a person's name
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a person's name to search for: ");
+        String searchName = scanner.nextLine();
+
+        // Search for the person's contact number
+        String contactNumber = phoneBook.get(searchName);
+        if (contactNumber != null) {
+            System.out.println("Contact number for " + searchName + ": " + contactNumber);
+        } else {
+            System.out.println(searchName + " not found in phonebook");
+        }
     }
 }
