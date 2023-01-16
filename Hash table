@@ -1,0 +1,19 @@
+import java.util.Hashtable;
+
+public class Person {
+    public static void main(String[] args) {
+        Hashtable<String, String> phoneBook = new Hashtable<>();
+
+        // Add entries to the Hashtable
+        phoneBook.put("John Smith", "555-555-5555");
+        phoneBook.put("Jane Doe", "555-555-5556");
+        phoneBook.put("Bob Johnson", "555-555-5557");
+
+        // Display all entries in the Hashtable
+        System.out.println(phoneBook);
+
+        // Search for a specific person
+        String contactNumber = phoneBook.get("Jane Doe");
+        System.out.println("Contact number for Jane Doe: " + contactNumber);
+    }
+}
