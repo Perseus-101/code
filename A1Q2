@@ -1,0 +1,121 @@
+import java.util.HashSet;
+
+class SinglyLinkedList {
+    Node head;
+
+    static class Node {
+        String data;
+        Node next;
+
+        Node(String data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    // Method to add a new node to the list
+    public void add(String data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    // Method to remove duplicates from the list
+    public void removeDuplicates() {
+        HashSet<String> set = new HashSet<>();
+        Node current = head;
+        Node previous = null;
+        while (current != null) {
+            if (set.contains(current.data)) {
+                previous.next = current.next;
+            } else {
+                set.add(current.data);
+                previous = current;
+            }
+            current = current.next;
+        }
+    }
+
+    // Method to perform the union of two lists
+    public SinglyLinkedList union(SinglyLinkedList list2) {
+        SinglyLinkedList unionList = new SinglyLinkedList();
+        Node current = head;
+        while (current != null) {
+            unionList.add(current.data);
+            current = current.next;
+        }
+        current = list2.head;
+        while (current != null) {
+            unionList.add(current.data);
+            current = current.next;
+        }
+        unionList.removeDuplicates();
+        return unionList;
+    }
+
+    // Method to perform the intersection of two lists
+    public SinglyLinkedList intersection(SinglyLinkedList list2) {
+        SinglyLinkedList intersectionList = new SinglyLinkedList();
+        Node current = head;
+        while (current != null) {
+            if (list2.contains(current.data)) {
+                intersectionList.add(current.data);
+            }
+            current = current.next;
+        }
+        intersectionList.removeDuplicates();
+        return intersectionList;
+    }
+
+    // Method to check if a value is present in the list
+    public boolean contains(String data) {
+        Node current = head;
+        while (current != null) {
+            if (current.data.equals(data)) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    // Method to display the list
+    public void display() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SinglyLinkedList list1 = new SinglyLinkedList();
+        list1.add("A");
+        list1.add("B");
+        list1.add("C");
+        list1.add("D");
+        list1.add("E");
+
+        SinglyLinkedList list2 = new SinglyLinkedList();
+        list2.add("C");
+        list2.add("D");
+        list2.add("F");
+        list2.add("G");
+
+        System.out.print("List 1: ");
+        list1.display();
+        System.out.print("List 2: ");
+        list2.display();
+
+        System.out.print("Union: ");
+        SinglyLinkedList union = list1.union(list2);
+        union.display();
+
+        System.out.print("Intersection: ");
+        SinglyLinkedList intersection = list1.intersection(list2);
+        intersection.display();
+    }
+}
