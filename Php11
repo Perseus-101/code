@@ -93,3 +93,33 @@ QQ
     <input type="submit" name="submit" value="Submit">
 </form>
 
+
+QQ
+
+
+
+<form>
+    <input type="radio" name="form" value="actor" onclick="showForm(this.value)" checked> Display movies an actor has acted in
+    <br>
+    <input type="radio" name="form" value="movie" onclick="showForm(this.value)"> Update release year of a movie
+</form>
+
+<div id="actor-form" style="display: block;">
+    <!-- HTML Form for accepting actor name -->
+</div>
+
+<div id="movie-form" style="display: none;">
+    <!-- HTML Form for accepting movie name and new release year -->
+</div>
+
+<script>
+    function showForm(form) {
+        if (form === "actor") {
+            document.getElementById("actor-form").style.display = "block";
+            document.getElementById("movie-form").style.display = "none";
+        } else {
+            document.getElementById("actor-form").style.display = "none";
+            document.getElementById("movie-form").style.display = "block";
+        }
+    }
+</script>
