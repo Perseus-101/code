@@ -1,0 +1,8 @@
+CREATE TABLE MovieActor (
+    movie_no INT NOT NULL,
+    actor_no INT NOT NULL,
+    rate INT NOT NULL,
+    PRIMARY KEY (movie_no, actor_no),
+    FOREIGN KEY (movie_no) REFERENCES Movie(movie_no),
+    FOREIGN KEY (actor_no) REFERENCES Actor(actor_no)
+);
